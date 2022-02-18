@@ -34,3 +34,9 @@ links to docs for terms I mention
 ## Demo Recording
 
 [live when recording is complete](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+## Event Description
+
+February 23rd, 2022:  
+Duck is a mobile app that listens to messages users submit. You have been hired to take Duck to the next level. In this demo, we are going to build a free-tier serverless backend on AWS. We will use API Gateway, Lambda Functions, DynamoDB, Amplify, and a couple other supporting services. Expect an evening of puns, nerd humor, and quality cloud-hosted fun!  
+https://www.meetup.com/Free-Code-Camp-Indy/events/283869186/
