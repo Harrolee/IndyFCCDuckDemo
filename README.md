@@ -6,12 +6,19 @@
 
 ## Postman Collection
 
-[Postman requests used in demo (view only)](https://www.getpostman.com/collections/5596aff24c882506a0f4)  
-remind Lee to create a new link when he is finished writing requests
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/11943871-29073b25-ceed-4120-b842-e86e07b983ba?action=collection%2Ffork&collection-url=entityId%3D11943871-29073b25-ceed-4120-b842-e86e07b983ba%26entityType%3Dcollection%26workspaceId%3Ddcb2d5ae-b41b-4b2e-88c9-cf56979daa52)
 
-## Coding videos
+## "Live" Coding videos
 
-link to loom videos
+### Lambdas:
+
+1. considerThought v1
+2. oldAdvice
+3. considerThought v2
+
+### Api Gateway:
+
+1. Routes and methods
 
 ## Tools used in demo
 
@@ -40,6 +47,7 @@ links to docs for terms I mention
 
 ## Event Description
 
+[Event Link](https://www.meetup.com/Free-Code-Camp-Indy/events/283869186/)
+
 February 23rd, 2022:  
-Duck is a mobile app that listens to messages users submit. You have been hired to take Duck to the next level. In this demo, we are going to build a free-tier serverless backend on AWS. We will use API Gateway, Lambda Functions, DynamoDB, Amplify, and a couple other supporting services. Expect an evening of puns, nerd humor, and quality cloud-hosted fun!  
-https://www.meetup.com/Free-Code-Camp-Indy/events/283869186/
+Duck is a mobile app that listens to messages users submit. You have been hired to take Duck to the next level. In this demo, we are going to build a free-tier serverless backend on AWS. We will use API Gateway, Lambda Functions, DynamoDB, Amplify, and a couple other supporting services. Expect an evening of puns, nerd humor, and quality cloud-hosted fun!
