@@ -1,0 +1,55 @@
+// Create references and objects outside of the handler
+const ssmClient = new (require("aws-sdk/clients/ssm"))();
+
+// create a DocumentClient that represents the query to get the item.
+const dynamodb = require("aws-sdk/clients/dynamodb");
+const docClient = new dynamodb.DocumentClient();
+
+exports.handler = async (event) => {
+  const { subject } = event;
+  const tableName = await getTableName();
+
+  const dynamoDbParams = {
+    TableName: tableName ?? "duck-tales",
+    Key: { subject: subject },
+  };
+
+  let messages;
+  try {
+    messages = await docClient.get(dynamoDbParams).promise();
+  } catch {
+    messages = null;
+  }
+
+  if (!messages) {
+    return {
+      statusCode: 501,
+      body: {
+        error: "No messages found with that subject",
+      },
+    };
+  }
+
+  // return all messages to consumer
+  const advice = "You should keep that for yourself";
+  const body = { ...messages, advice };
+
+  const response = {
+    statusCode: 200,
+    body: {
+      subject: subject,
+      messages: body,
+      tableName: tableName,
+    },
+  };
+  return response;
+};
+
+async function getTableName() {
+  const params = await ssmClient
+    .getParameters({
+      Names: ["duckPrep-dev-tableName"],
+    })
+    .promise();
+  return params.Parameters[0].Value;
+}

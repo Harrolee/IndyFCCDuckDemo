@@ -21,7 +21,10 @@ Create a [free Postman account](https://www.postman.com/postman-account/)
 
 ## Further Learning
 
-links to aws tutorials
+### DynamoDB
+
+[DynamoDB with javascript](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.01.html)
+[Projection Expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.html)
 
 ## Glossary
 

@@ -1,0 +1,58 @@
+const ssmClient = new (require("aws-sdk/clients/ssm"))();
+const dynamodb = require("aws-sdk/clients/dynamodb");
+const docClient = new dynamodb.DocumentClient();
+
+const duckAdvice = [
+  "So kind!",
+  "Say more; you're holding back",
+  "You shouldn't say that to anyone",
+];
+
+exports.handler = async (event) => {
+  const { subject, message } = event;
+
+  if (!subject || !message) {
+    return {
+      statusCode: 400,
+      error:
+        "Fields must contain strings.\nYour Input:\nsubject:${subject}\nmessage:${message}",
+    };
+  }
+
+  const tableName = await getTableName();
+
+  const adviceIndex = randomInt(0, duckAdvice.length);
+  console.log("adviceIndex is ", adviceIndex);
+  // return advice
+  const advice = duckAdvice[adviceIndex];
+
+  // store advice in dynamoDb
+  const params = {
+    TableName: tableName,
+    Item: { subject, message },
+  };
+  await docClient.put(params).promise();
+
+  const response = {
+    statusCode: 200,
+    body: {
+      thought: { subject: subject, message: message },
+      advice: advice,
+    },
+    headers: { "Content-Type": "application/json" },
+  };
+  return response;
+};
+
+async function getTableName() {
+  const params = await ssmClient
+    .getParameters({
+      Names: ["duckPrep-dev-tableName"],
+    })
+    .promise();
+  return params.Parameters[0].Value;
+}
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
