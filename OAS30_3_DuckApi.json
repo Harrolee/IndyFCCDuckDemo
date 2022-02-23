@@ -1,0 +1,50 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Duck",
+    "version" : "2022-02-23 02:30:45UTC"
+  },
+  "servers" : [ {
+    "url" : "https://3wdrt37dji.execute-api.us-west-1.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "dev"
+      }
+    }
+  } ],
+  "paths" : {
+    "/considerThought" : {
+      "get" : {
+        "responses" : {
+          "default" : {
+            "description" : "Default response for GET /considerThought"
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "payloadFormatVersion" : "2.0",
+          "type" : "aws_proxy",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:us-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-1:310753928788:function:considerThought/invocations",
+          "connectionType" : "INTERNET"
+        }
+      }
+    },
+    "/oldAdvice" : {
+      "get" : {
+        "responses" : {
+          "default" : {
+            "description" : "Default response for GET /oldAdvice"
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "payloadFormatVersion" : "2.0",
+          "type" : "aws_proxy",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:us-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-1:310753928788:function:oldAdvice/invocations",
+          "connectionType" : "INTERNET"
+        }
+      }
+    }
+  },
+  "x-amazon-apigateway-importexport-version" : "1.0"
+}

@@ -12,13 +12,18 @@
 
 ### Lambdas:
 
-1. considerThought v1
-2. oldAdvice
-3. considerThought v2
+1. considerThought v1:  
+   ./Lambdas/v1/considerThought.js
+2. oldAdvice:  
+   ./Lambdas/Final/oldAdvice.js
+3. considerThought v2:  
+   ./Lambdas/Final/considerThought.js
 
 ### Api Gateway:
 
-1. Routes and methods
+**Exported OAS3:**  
+./OAS30_3_DuckApi.json  
+([what is OAS3 (OpenApiSpecification (fka Swagger))?](https://swagger.io/blog/news/whats-new-in-openapi-3-0/))
 
 ## Tools used in demo
 
@@ -30,16 +35,16 @@ Create a [free Postman account](https://www.postman.com/postman-account/)
 
 ### DynamoDB
 
-[DynamoDB with javascript](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.01.html)
-[Projection Expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.html)
+[DynamoDB with javascript](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.01.html)  
+[Projection Expressions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.html) (aka how to get specific attributes from a table)
 
 ## Glossary
 
-Serverless Computing  
-API Gateway  
-AWS Lambda
-
-links to docs for terms I mention
+[Serverless Computing](https://en.wikipedia.org/wiki/Serverless_computing#:~:text=From%20Wikipedia%2C%20the%20free%20encyclopedia%20Serverless%20computing%20is,cloud%20service%20providers%20to%20execute%20code%20for%20developers.)  
+[API Gateway](https://docs.aws.amazon.com/apigateway/index.html)  
+[Lambda](https://docs.aws.amazon.com/lambda/index.html)  
+[System Manager](https://docs.aws.amazon.com/systems-manager/)  
+[Cloudwatch](https://docs.aws.amazon.com/cloudwatch/)
 
 ## Demo Recording
 

@@ -2,7 +2,7 @@ const ssmClient = new (require("aws-sdk/clients/ssm"))();
 const dynamodb = require("aws-sdk/clients/dynamodb");
 const docClient = new dynamodb.DocumentClient();
 
-const duckAdvice = [
+const possibleAdvice = [
   "So kind!",
   "Say more; you're holding back",
   "You shouldn't say that to anyone",
@@ -29,8 +29,8 @@ exports.handler = async (event) => {
   const tableName = await getTableName();
 
   // get advice
-  const adviceIndex = randomInt(0, duckAdvice.length - 1);
-  const advice = duckAdvice[adviceIndex];
+  const randomInt = Math.floor(Math.random() * possibleAdvice.length);
+  const advice = possibleAdvice[randomInt];
 
   // store advice in dynamoDb
   const params = {
@@ -55,12 +55,8 @@ exports.handler = async (event) => {
 async function getTableName() {
   const params = await ssmClient
     .getParameters({
-      Names: ["duckPrep-dev-tableName"],
+      Names: ["duckApp-dev-tableName"],
     })
     .promise();
   return params.Parameters[0].Value;
-}
-
-function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
 }
